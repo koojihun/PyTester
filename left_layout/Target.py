@@ -23,7 +23,6 @@ class Target:
         self.target_ok_btn.clicked.connect(self._handle_ok)
 
         self.found = None
-        self.result = None
 
     def _handle_chage_market(self):
         idx = self.target_market_combo_box.currentIndex()
@@ -76,11 +75,9 @@ class Target:
     def _handle_ok(self):
         target_market_idx = self.target_market_combo_box.currentIndex()
         if target_market_idx == 0 or target_market_idx == 1:
-            self.result = Stock(target_market_idx, "", "")
             self.main_window.target_text_label.setText(self.target_market_combo_box.currentText())
             self._switch_search_function(False)
         else:
             if self.found is not None:
-                self.result = Stock(target_market_idx)
                 self.main_window.target_text_label.setText(self.found.code + "\n" + self.found.name)
                 self._switch_search_function(True)
