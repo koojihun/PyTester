@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>981</width>
-    <height>660</height>
+    <height>673</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout" stretch="25,75">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0">
       <item>
        <widget class="QGroupBox" name="groupBox_8">
         <property name="title">
@@ -54,22 +54,22 @@
           <widget class="QComboBox" name="target_market_combo_box">
            <item>
             <property name="text">
-             <string>KOSPI 전체</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>KOSDAQ 전체</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
              <string>KOSPI 특정</string>
             </property>
            </item>
            <item>
             <property name="text">
              <string>KOSDAQ 특정</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>KOSPI 전체</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>KOSDAQ 전체</string>
             </property>
            </item>
           </widget>
@@ -125,7 +125,22 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="1" column="1">
-          <widget class="QDateEdit" name="to_date_edit"/>
+          <widget class="QDateEdit" name="to_date_edit">
+           <property name="maximumDate">
+            <date>
+             <year>2020</year>
+             <month>10</month>
+             <day>30</day>
+            </date>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2015</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+          </widget>
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_14">
@@ -148,12 +163,96 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QDateEdit" name="from_date_edit"/>
+          <widget class="QDateEdit" name="from_date_edit">
+           <property name="maximumDate">
+            <date>
+             <year>2020</year>
+             <month>10</month>
+             <day>30</day>
+            </date>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2015</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+          </widget>
          </item>
          <item row="2" column="0" colspan="2">
           <widget class="QPushButton" name="date_ok_btn">
            <property name="text">
-            <string>완료</string>
+            <string>설정</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_9">
+        <property name="title">
+         <string>거래량 기준</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>이전</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="spinBox">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>365</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>일 평균 보다</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QSpinBox" name="spinBox_2">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="maximum">
+            <number>999</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>% 증가일 경우</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="3">
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>설정</string>
            </property>
           </widget>
          </item>
@@ -439,7 +538,7 @@ border-color: #FA8072;
 border-radius: 3px</string>
              </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -448,6 +547,41 @@ border-radius: 3px</string>
            </item>
            <item>
             <widget class="QPushButton" name="date_clear_btn">
+             <property name="text">
+              <string>초기화</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_10">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="title">
+           <string>거래량</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QLabel" name="volume_text_label">
+             <property name="styleSheet">
+              <string notr="true">border-style: solid;
+border-width: 2px;
+border-color: #FA8072;
+border-radius: 3px</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="volume_label_clear_btn">
              <property name="text">
               <string>초기화</string>
              </property>
@@ -579,7 +713,7 @@ border-radius: 3px</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="volume_text_label">
+       <widget class="QLabel" name="volume_found_label">
         <property name="styleSheet">
          <string notr="true">background-color : rgb(255, 255, 127);
 
