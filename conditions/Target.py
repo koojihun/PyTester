@@ -1,13 +1,15 @@
-from Finals import *
+from Utils.Finals import *
 from Stock import Stock
 
 
 class Target:
 
     def __init__(self, main_window, condition_manager, markets):
+
         self.main_window = main_window
         self.condition_manager = condition_manager
         self.markets = markets.markets
+
         self.target_market_combo_box = main_window.target_market_combo_box
         self.target_search_condition_combo_box = main_window.target_search_condition_combo_box
         self.target_search_line_edit = main_window.target_search_line_edit
@@ -73,12 +75,12 @@ class Target:
         target_market_idx = self.target_market_combo_box.currentIndex()
         if target_market_idx == KOSPI_SELECT_ALL or target_market_idx == KOSDAQ_SELECT_ALL:
             self.main_window.target_text_label.setText(self.target_market_combo_box.currentText())
-            self.condition_manager.target_stock = Stock(target_market_idx, "", "")
+            self.condition_manager.results.target_stock = Stock(target_market_idx, "", "")
             self._switch_search_function(False)
         else:
             if self.found is not None:
                 self.main_window.target_text_label.setText(MARKET_NAMES[target_market_idx] + "\n"
                                                            + self.found.code + "\n"
                                                            + self.found.name)
-                self.condition_manager.target_stock = self.found
+                self.condition_manager.results.target_stock = self.found
                 self._switch_search_function(True)

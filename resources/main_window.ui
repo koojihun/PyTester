@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>981</width>
-    <height>673</height>
+    <width>1100</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -124,11 +124,46 @@
          <string>기간</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="1">
+          <widget class="QDateEdit" name="from_date_edit">
+           <property name="maximumDate">
+            <date>
+             <year>2900</year>
+             <month>10</month>
+             <day>30</day>
+            </date>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2015</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QPushButton" name="date_ok_btn">
+           <property name="text">
+            <string>설정</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_13">
+           <property name="text">
+            <string>FROM</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="1">
           <widget class="QDateEdit" name="to_date_edit">
            <property name="maximumDate">
             <date>
-             <year>2020</year>
+             <year>2900</year>
              <month>10</month>
              <day>30</day>
             </date>
@@ -152,38 +187,19 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_13">
+         <item row="3" column="0" colspan="2">
+          <widget class="QLabel" name="label_6">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <underline>true</underline>
+            </font>
+           </property>
            <property name="text">
-            <string>FROM</string>
+            <string>* 최대 어제 날짜까지 선택 가능 *</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QDateEdit" name="from_date_edit">
-           <property name="maximumDate">
-            <date>
-             <year>2020</year>
-             <month>10</month>
-             <day>30</day>
-            </date>
-           </property>
-           <property name="minimumDate">
-            <date>
-             <year>2015</year>
-             <month>1</month>
-             <day>1</day>
-            </date>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0" colspan="2">
-          <widget class="QPushButton" name="date_ok_btn">
-           <property name="text">
-            <string>설정</string>
            </property>
           </widget>
          </item>
@@ -207,7 +223,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QSpinBox" name="spinBox">
+          <widget class="QSpinBox" name="volume_days_spinBox">
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -230,7 +246,7 @@
           </widget>
          </item>
          <item row="1" column="0" colspan="2">
-          <widget class="QSpinBox" name="spinBox_2">
+          <widget class="QSpinBox" name="volume_percents_spinBox">
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -250,7 +266,7 @@
           </widget>
          </item>
          <item row="2" column="0" colspan="3">
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="volume_ok_btn">
            <property name="text">
             <string>설정</string>
            </property>
@@ -262,8 +278,7 @@
       <item>
        <widget class="QGroupBox" name="groupBox_6">
         <property name="title">
-         <string>매수조건 ( A &lt; B )
-                                    </string>
+         <string>매수조건 ( A &lt; B )</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_3">
          <item row="1" column="0">
@@ -367,8 +382,7 @@
       <item>
        <widget class="QGroupBox" name="groupBox_7">
         <property name="title">
-         <string>매도조건 ( A &lt; B )
-                                    </string>
+         <string>매도조건 ( A &lt; B )</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_4">
          <item row="1" column="0">
@@ -395,11 +409,6 @@
           <widget class="QComboBox" name="sell_condition_combo_box_A">
            <item>
             <property name="text">
-             <string>구매가</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
              <string>시가</string>
             </property>
            </item>
@@ -426,6 +435,11 @@
            <item>
             <property name="text">
              <string>120평</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>구매가</string>
             </property>
            </item>
           </widget>
@@ -434,11 +448,6 @@
           <widget class="QComboBox" name="sell_condition_combo_box_B">
            <item>
             <property name="text">
-             <string>구매가</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
              <string>시가</string>
             </property>
            </item>
@@ -465,6 +474,11 @@
            <item>
             <property name="text">
              <string>120평</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>구매가</string>
             </property>
            </item>
           </widget>
@@ -499,7 +513,7 @@
              <property name="styleSheet">
               <string notr="true">border-style: solid;
 border-width: 2px;
-border-color: #FA8072;
+border-color: #C75748;
 border-radius: 3px</string>
              </property>
              <property name="text">
@@ -534,7 +548,7 @@ border-radius: 3px</string>
              <property name="styleSheet">
               <string notr="true">border-style: solid;
 border-width: 2px;
-border-color: #FA8072;
+border-color: #C75748;
 border-radius: 3px</string>
              </property>
              <property name="text">
@@ -569,7 +583,7 @@ border-radius: 3px</string>
              <property name="styleSheet">
               <string notr="true">border-style: solid;
 border-width: 2px;
-border-color: #FA8072;
+border-color: #C75748;
 border-radius: 3px</string>
              </property>
              <property name="text">
@@ -581,7 +595,7 @@ border-radius: 3px</string>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="volume_label_clear_btn">
+            <widget class="QPushButton" name="volume_clear_btn">
              <property name="text">
               <string>초기화</string>
              </property>
@@ -604,11 +618,11 @@ border-radius: 3px</string>
              <property name="styleSheet">
               <string notr="true">border-style: solid;
 border-width: 2px;
-border-color: #FA8072;
+border-color: #C75748;
 border-radius: 3px</string>
              </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -639,11 +653,11 @@ border-radius: 3px</string>
              <property name="styleSheet">
               <string notr="true">border-style: solid;
 border-width: 2px;
-border-color: #FA8072;
+border-color: #C75748;
 border-radius: 3px</string>
              </property>
              <property name="text">
-              <string>TextLabel</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -693,15 +707,10 @@ border-radius: 3px</string>
       <item>
        <widget class="QLabel" name="today_text_label">
         <property name="styleSheet">
-         <string notr="true">background-color : rgb(127, 255, 127);
-
-                                                                                border-style: solid;
-
-                                                                                border-width: 2px;
-
-                                                                                border-color: #FA8072;
-
-                                                                                border-radius: 3px
+         <string notr="true">border-style: solid;
+border-width: 2px;
+border-color: #FA8072;
+border-radius: 3px
                                     </string>
         </property>
         <property name="text">
@@ -715,19 +724,14 @@ border-radius: 3px</string>
       <item>
        <widget class="QLabel" name="volume_found_label">
         <property name="styleSheet">
-         <string notr="true">background-color : rgb(255, 255, 127);
-
-                                                                                border-style: solid;
-
-                                                                                border-width: 2px;
-
-                                                                                border-color: #FA8072;
-
-                                                                                border-radius: 3px
+         <string notr="true">border-style: solid;
+border-width: 2px;
+border-color: #FA8072;
+border-radius: 3px
                                     </string>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -793,7 +797,7 @@ border-radius: 3px</string>
                                             </string>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -813,7 +817,7 @@ border-radius: 3px</string>
                                             </string>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -866,7 +870,7 @@ border-radius: 3px</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>981</width>
+     <width>1100</width>
      <height>21</height>
     </rect>
    </property>

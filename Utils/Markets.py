@@ -1,4 +1,4 @@
-from Finals import Finals
+from Utils.Finals import *
 
 
 class Market:
@@ -23,12 +23,12 @@ class Markets:
     def __init__(self):
 
         self.markets = [None, None]
-        self.markets[Finals.KOSPI_MARKET] = Market()
-        self.markets[Finals.KOSDAQ_MARKET] = Market()
+        self.markets[KOSPI_MARKET] = Market()
+        self.markets[KOSDAQ_MARKET] = Market()
 
         file_list = [None, None]
-        file_list[Finals.KOSPI_MARKET] = open('resources\\kospi_code_name_list.txt', 'rt')
-        file_list[Finals.KOSDAQ_MARKET] = open('resources\\kosdaq_code_name_list.txt', 'rt')
+        file_list[KOSPI_MARKET] = open('./resources/kospi_code_name_list.txt', 'rt')
+        file_list[KOSDAQ_MARKET] = open('./resources/kosdaq_code_name_list.txt', 'rt')
 
         for target_market in range(len(file_list)):
             file = file_list[target_market]
