@@ -1,4 +1,4 @@
-from Finals import Finals
+from Finals import *
 from Stock import Stock
 
 
@@ -26,7 +26,7 @@ class Target:
     def _handle_change_market(self):
 
         idx = self.target_market_combo_box.currentIndex()
-        if idx == Finals.KOSPI_SELECT_ONE or idx == Finals.KOSDAQ_SELECT_ONE:
+        if idx == KOSPI_SELECT_ONE or idx == KOSDAQ_SELECT_ONE:
             self._switch_search_function(True)
         else:
             self._switch_search_function(False)
@@ -55,29 +55,29 @@ class Target:
         self.found = None
 
         # 종목 코드로 검색한 경우.
-        if search_condition_idx == Finals.SEARCH_CONDITION_CODE \
+        if search_condition_idx == SEARCH_CONDITION_CODE \
                 and self.markets[target_market_idx].get_name(key) is not None:
             self.found = Stock(target_market_idx, key, self.markets[target_market_idx].get_name(key))
 
         # 종목 이름으로 검색한 경우.
-        elif search_condition_idx == Finals.SEARCH_CONDITION_NAME \
+        elif search_condition_idx == SEARCH_CONDITION_NAME \
                 and self.markets[target_market_idx].get_code(key) is not None:
             self.found = Stock(target_market_idx, self.markets[target_market_idx].get_code(key), key)
 
         if self.found is None:
-            self.target_search_result_line_edit.setText(Finals.NOT_EXIST_MESSAGE)
+            self.target_search_result_line_edit.setText(NOT_EXIST_MESSAGE)
         else:
             self.target_search_result_line_edit.setText(self.found.code + " " + self.found.name)
 
     def _handle_ok(self):
         target_market_idx = self.target_market_combo_box.currentIndex()
-        if target_market_idx == Finals.KOSPI_SELECT_ALL or target_market_idx == Finals.KOSDAQ_SELECT_ALL:
+        if target_market_idx == KOSPI_SELECT_ALL or target_market_idx == KOSDAQ_SELECT_ALL:
             self.main_window.target_text_label.setText(self.target_market_combo_box.currentText())
             self.condition_manager.target_stock = Stock(target_market_idx, "", "")
             self._switch_search_function(False)
         else:
             if self.found is not None:
-                self.main_window.target_text_label.setText(Finals.MARKET_NAMES[target_market_idx] + "\n"
+                self.main_window.target_text_label.setText(MARKET_NAMES[target_market_idx] + "\n"
                                                            + self.found.code + "\n"
                                                            + self.found.name)
                 self.condition_manager.target_stock = self.found
