@@ -1,4 +1,7 @@
 from datetime import datetime, timedelta
+
+from dateutil.relativedelta import relativedelta
+
 from Utils.Dialog import Dialog
 
 
@@ -31,6 +34,10 @@ class DateRange:
 
         if from_date > to_date:
             Dialog.show_err("시작일은 종료일보다 작거나 같아야합니다.")
+            return
+
+        if from_date.year() < 2017:
+            Dialog.show_err("2017년 이전의 데이터는 검색할 수 없습니다.")
             return
 
         self.condition_manager.results.from_date = from_date
